@@ -10,4 +10,6 @@ make logs name=<CONTAINER_NAME> # to view logs of a container whose name is give
 
 make up #to bring up the containers
 
+make show #to show the running containers
+
 make help #view all help commands 

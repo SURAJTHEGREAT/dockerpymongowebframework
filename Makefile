@@ -12,10 +12,13 @@ down:
 up:
 	docker-compose up -d
 
+show:
+	docker-compose ps
+
 logs:
 	docker logs -f $(name)
 
 help:
-	tail bin/commands.txt
+	cat bin/commands.txt
 
         
