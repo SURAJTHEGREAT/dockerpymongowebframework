@@ -1,0 +1,13 @@
+make env #to create config variables 
+
+make exec container=<CONTAINER_NAME> # to enter into some container
+
+make down volume=<yes/no> # to perform down of all containers, delete mongo volumes if given as yes #DISCLAIMER
+                 
+                  deleting volume will delete all user,sessions etc
+
+make logs name=<CONTAINER_NAME> # to view logs of a container whose name is given
+
+make up #to bring up the containers
+
+make help #view all help commands 

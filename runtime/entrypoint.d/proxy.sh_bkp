@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+###########################################################################
+# Written by Suraj to automate stackstorm installation depedencies
+###########################################################################
+
+set -vx
+
+
+apt_file='/etc/apt/apt.conf'
+
+bash_file='/root/.bashrc'
+
+
+echo "=========================================================================="
+echo "     STEP2:         FOR LOOP TO INSTALL THIS                              "
+echo "=========================================================================="
+
+
+if [ ${proxy_enabled} == True ];then
+
+
+
+echo "=========================================================================="
+echo "     STEP2:         APT FILE                                              "
+echo "=========================================================================="
+
+
+echo "Acquire::http::proxy \"http://$assoc_id:$assoc_pwd@$proxy_dns:$proxy_port/\";" >> $apt_file
+
+echo "Acquire::https::proxy \"https://$assoc_id:$assoc_pwd@$proxy_dns:$proxy_port/\";" >> $apt_file
+
+echo "Acquire::https::Verify-Peer \"false\" ;"  >> $apt_file
+
+echo "Acquire::https::Verify-Host \"false\" ;"  >> $apt_file
+
+echo "=========================================================================="
+echo "     STEP3:   SOURCE   ENV FILE                                           "
+echo "=========================================================================="
+                                                                                                                             
+echo "export http_proxy=http://$assoc_id:$assoc_pwd@$proxy_dns:$proxy_port/" >> $bash_file
+
+echo "export https_proxy=http://$assoc_id:$assoc_pwd@$proxy_dns:$proxy_port/" >> $bash_file
+
+echo "export HTTP_PROXY=http://$assoc_id:$assoc_pwd@$proxy_dns:$proxy_port/" >> $bash_file
+
+echo "export HTTPS_PROXY=http://$assoc_id:$assoc_pwd@$proxy_dns:$proxy_port/" >> $bash_file
+
+
+echo "export no_proxy=localhost,127.0.0.1" >> $bash_file
+
+
+source $bash_file
+
+fi

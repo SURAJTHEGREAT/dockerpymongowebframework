@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  blog:
+    image: blog_image:v1
+    container_name: blog
+    build:
+      context: blog 
+      dockerfile: Dockerfile
+      args:
+        proxy: $proxy 
+    env_file:
+      - conf/mongo.env
+      - conf/proxy.env
+      - conf/repo.env 
+      - conf/config.env 
+    ports:
+      - "8080:8082"
+    networks:
+      - public
+      - private
+    volumes:
+      - ./runtime/entrypoint.d:/blog-docker/entrypoint.d
+      - ./runtime/run.d:/blog-docker/run.d
+
+
+
+### External Services
+
+  mongo_db:
+    image: mongo:3.4
+    container_name: mongo_db
+    env_file:
+      - conf/mongo.env
+    networks:
+      - private
+    volumes:
+      - mongo_db_volume:/data/db
+      - mongo_db_configdb_volume:/data/configdb
+
+  
+volumes:
+  mongo_db_volume:
+  mongo_db_configdb_volume:
+
+
+networks:
+  public:
+    driver: bridge
+  private:
+    driver: bridge
