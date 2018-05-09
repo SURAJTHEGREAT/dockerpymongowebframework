@@ -49,3 +49,10 @@ networks:
     driver: bridge
   private:
     driver: bridge
+    #COMMENT BELOW LINES FOR TESTING THE FIX
+    ipam:
+       driver: default
+       config:
+          - subnet: 10.1.1.0/24
+    internal: true         
+        
