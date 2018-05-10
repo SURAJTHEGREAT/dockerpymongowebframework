@@ -14,9 +14,9 @@ services:
 before_install:
   - cd blog
   - docker build . -t blog:test
-
+  - cd ..
 install:
-  - docker run --env CONFIG_PATH=${CONFIG_PATH} --env MONGO_HOST=${MONGO_HOST} --env MONGO_PORT=${MONGO_PORT} blog:test cat ${CONFIG_PATH}
+  - docker run --volume runtime/entrypoint.d:/blog-docker/entrypoint.d --env CONFIG_PATH=${CONFIG_PATH} --env MONGO_HOST=${MONGO_HOST} --env MONGO_PORT=${MONGO_PORT} blog:test cat ${CONFIG_PATH}
   
   
 script: true
