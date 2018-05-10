@@ -11,12 +11,11 @@ services:
   - docker
 
 before_install:
+  - sudo mv runtime/ /blog-docker/
   - cd blog
   - docker build -f Dockerfile .
 
 install:
-  - cd ..
-  - sudo mv runtime/ /blog-docker/
   - sh bin/entrypoint.sh
 
 script: true
