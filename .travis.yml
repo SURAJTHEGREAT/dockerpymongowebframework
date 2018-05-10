@@ -11,8 +11,8 @@ services:
   - docker
 
 before_install:
-  - cd blog
-  - docker build Dockerfile -t blog:CI
+
+  - docker build -f blog/Dockerfile .
    
   
 
