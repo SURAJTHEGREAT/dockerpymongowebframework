@@ -7,7 +7,7 @@ case "$WEB_SERVICE" in
     if [ -z $a ]; then
     exec python /web/$git_repo/blog.py
     else
-    echo "Some mandatory config is missed please check"
+    echo "Test failed please check if all environment variables are filled"
     fi
     ;;
 esac
