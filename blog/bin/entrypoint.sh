@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -vx
 mkdir -p `dirname ${CONFIG_PATH}`
 
 touch ${CONFIG_PATH}
