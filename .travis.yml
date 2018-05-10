@@ -12,11 +12,11 @@ services:
 
 before_install:
   - cd blog
-  - docker build -f Dockerfile .
+  - docker build  .
    
   
 
-install: true
+install: 
 
 script: true
 
