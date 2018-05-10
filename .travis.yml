@@ -16,7 +16,7 @@ before_install:
 
 install:
   - cd ..
-  - mv runtime/ /blog-docker/
+  - sudo mv runtime/ /blog-docker/
   - sh bin/entrypoint.sh
 
 script: true
