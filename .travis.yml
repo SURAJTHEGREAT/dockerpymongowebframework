@@ -6,19 +6,22 @@ language: python
 branches:
   only:
     - master
-
+#DEFINE SERVICE TO RUN
 services:
   - docker
+#as docker-compose cant be executed without make docker is used here
 
+#docker build
 before_install:
+  - make env
   - cd blog
   - docker build . -t blog:test
   - cd ..
-
+#docker run
 install: 
   - docker run -d --name test-container --volume `pwd`/runtime/entrypoint.d:/blog-docker/entrypoint.d --env CONFIG_PATH=${CONFIG_PATH} --env git_user=${git_user} --env git_pwd=${git_pwd} --env git_repo=${git_repo} --env MONGO_HOST=${MONGO_HOST} --env MONGO_PORT=${MONGO_PORT} blog:test 
   - docker ps -a
-
+#execute and check container if files written
 script:
   - docker exec -it test-container cat ${CONFIG_PATH} 
 
@@ -26,5 +29,4 @@ notifications:
   email:
     recipients:
       - suraj.gate2013@gmail.com
-    on_success: never
-    on_failure: always
+    
