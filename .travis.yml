@@ -12,7 +12,7 @@ services:
 
 before_install:
   
-  - docker build blog/Dockerfile -t blog:dev .
+  - docker build blog/Dockerfile .
 
 install:
 
