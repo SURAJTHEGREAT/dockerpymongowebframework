@@ -1,4 +1,4 @@
-dist: trusty
+dist: jessie
 sudo: required
 
 language: python
