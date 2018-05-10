@@ -12,6 +12,8 @@ services:
 
 before_install:
   - make env
+  - echo git_user=${git_user} > conf/repo.env && echo git_pwd=${git_pwd} > conf/repo.env && echo git_repo=${git_repo} > conf/repo.env
+  - echo WEB_SERVICE=${WEB_SERVICE} > conf/proxy.env && echo CONFIG_PATH=${CONFIG_PATH}
   - docker-compose up -d
    
   
