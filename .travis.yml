@@ -1,9 +1,6 @@
-
+dist: trusty
 sudo: required
-env:
-  matrix:
-  - OS_TYPE=centos OS_VERSION=6
-  - OS_TYPE=centos OS_VERSION=7
+ 
 
 language: python
 
@@ -20,7 +17,7 @@ before_install:
   - docker build -f Dockerfile .
 
 install:
-  - sudo sh bin/entrypoint.sh
+  - sh bin/entrypoint.sh
 
 script: true
 
