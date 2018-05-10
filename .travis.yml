@@ -2,7 +2,7 @@ dist: trusty
 sudo: required
  
 
-language: python
+#language: python
 
 branches:
   only:
@@ -12,14 +12,12 @@ services:
   - docker
 
 before_install:
-  - sudo mv runtime/ /blog-docker/
-  - cd blog
-  - docker build -f Dockerfile .
+  - docker build -f blog/Dockerfile . -t blog:test
 
 install:
-  - apt-get install crudini
-  - sudo sh bin/entrypoint.sh
-  - cat ${CONFIG_PATH}
+  - docker run --env CONFIG_PATH=${CONFIG_PATH} --env MONGO_HOST=${MONGO_HOST} --env MONGO_PORT=${MONGO_PORT} blog:test cat ${CONFIG_PATH}
+  
+  
 script: true
 
 notifications:
