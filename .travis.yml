@@ -11,11 +11,11 @@ services:
   - docker
 
 before_install:
-  
-  - docker build -f blog/Dockerfile .
+  - cd blog
+  - docker build -f Dockerfile .
 
 install:
-
+  - cd ..
   - mv runtime/ blog-docker/
   - sh blog/entrypoint.sh
 
