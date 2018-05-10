@@ -16,7 +16,7 @@ before_install:
   - docker build . -t blog:test
   - cd ..
 install:
-  - docker run --volume `pwd`/runtime/entrypoint.d:/blog-docker/entrypoint.d --env CONFIG_PATH=${CONFIG_PATH} --env git_user=${git_user} --env git_pwd=${git_pwd} --env git_repo=${git_repo} --env MONGO_HOST=${MONGO_HOST} --env MONGO_PORT=${MONGO_PORT} blog:test cat ${CONFIG_PATH}
+  - travis_wait 20 docker run --volume `pwd`/runtime/entrypoint.d:/blog-docker/entrypoint.d --env CONFIG_PATH=${CONFIG_PATH} --env git_user=${git_user} --env git_pwd=${git_pwd} --env git_repo=${git_repo} --env MONGO_HOST=${MONGO_HOST} --env MONGO_PORT=${MONGO_PORT} blog:test cat ${CONFIG_PATH}
   
   
 script: true
