@@ -12,7 +12,8 @@ services:
   - docker
 
 before_install:
-  - docker build -f blog/Dockerfile . -t blog:test
+  - cd blog
+  - docker build . -t blog:test
 
 install:
   - docker run --env CONFIG_PATH=${CONFIG_PATH} --env MONGO_HOST=${MONGO_HOST} --env MONGO_PORT=${MONGO_PORT} blog:test cat ${CONFIG_PATH}
