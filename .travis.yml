@@ -1,7 +1,6 @@
 dist: trusty
 sudo: required
  
-
 language: python
 
 branches:
@@ -15,9 +14,13 @@ before_install:
   - cd blog
   - docker build . -t blog:test
   - cd ..
+
+install: 
   - docker run -d --name test-container --volume `pwd`/runtime/entrypoint.d:/blog-docker/entrypoint.d --env CONFIG_PATH=${CONFIG_PATH} --env git_user=${git_user} --env git_pwd=${git_pwd} --env git_repo=${git_repo} --env MONGO_HOST=${MONGO_HOST} --env MONGO_PORT=${MONGO_PORT} blog:test 
   - docker ps -a
-  
+
+script:
+  - docker exec -it test-container cat ${CONFIG_PATH} 
 
 notifications:
   email:
