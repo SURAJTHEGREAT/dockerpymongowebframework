@@ -17,7 +17,7 @@ before_install:
   - cd ..
   - docker run -d --name test-container --volume `pwd`/runtime/entrypoint.d:/blog-docker/entrypoint.d --env CONFIG_PATH=${CONFIG_PATH} --env git_user=${git_user} --env git_pwd=${git_pwd} --env git_repo=${git_repo} --env MONGO_HOST=${MONGO_HOST} --env MONGO_PORT=${MONGO_PORT} blog:test 
   - docker ps -a
-  - docker exec test-container cat ${CONFIG_PATH}
+  
 
 notifications:
   email:
