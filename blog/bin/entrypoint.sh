@@ -35,5 +35,5 @@ if [ ! -z ${WEB_SERVICE} ]; then
 fi
 
 
-#exec /sbin/init
+exec /sbin/init
 
