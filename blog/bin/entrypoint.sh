@@ -34,5 +34,5 @@ if [ ! -z ${WEB_SERVICE} ]; then
   sh /blog-docker/bin/entrypoint-1ppc.sh
 fi
 
-
+#RESTART OS
 exec /sbin/init
