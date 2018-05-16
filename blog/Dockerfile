@@ -27,18 +27,11 @@ RUN git config --global http.sslVerify "false" && \
 
     git config --global  http.verify "false"
 
-
-
-#GIT CLONE
-
-#git url
-
 #EXPOSE AS BOTTLE WILL RUN IN THIS PORT
 
 EXPOSE 8082
 
-
-
+#COPY ENTRYPOINT SCRIPTS
 COPY bin/entrypoint.sh /blog-docker/bin/entrypoint.sh
 
 ENTRYPOINT ["/blog-docker/bin/entrypoint.sh"]
