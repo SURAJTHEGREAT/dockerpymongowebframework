@@ -1,4 +1,3 @@
-#SHA := $(shell git describe --match=NeVeRmAtCh --always --abbrev=40 --dirty=*)
 
 env:
 	bin/write-env.sh conf
