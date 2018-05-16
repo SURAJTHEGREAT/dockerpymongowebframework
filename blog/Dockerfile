@@ -11,7 +11,7 @@ WORKDIR /web
 ENV http_proxy $proxy
 ENV https_proxy $proxy
 
-#INSTALL VIM PACKAGE
+#INSTALL VIM PACKAGE,NETSTAT AND CRUDINI
 RUN apt-get update && \
     apt-get -y install net-tools && \
     apt-get -y install vim && \
