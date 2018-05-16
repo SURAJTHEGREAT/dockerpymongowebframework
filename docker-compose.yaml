@@ -49,7 +49,7 @@ networks:
     driver: bridge
   private:
     driver: bridge
-    #COMMENT BELOW LINES FOR TESTING THE FIX
+    #COMMENT BELOW LINES FOR TESTING THE FIX - TO MAKE IT AS PRIVATE NETWORK
     ipam:
        driver: default
        config:
