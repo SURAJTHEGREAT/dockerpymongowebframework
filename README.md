@@ -5,6 +5,8 @@ Also the compose file is written dynamically so that we can integrated applicati
 
 **Author name** : **Suraj**
 
+**Mail id**: **suraj.gate2013@gmail.com**
+
 Profiles [Linkedin profile](https://www.linkedin.com/in/suraj-s-8a2a4459/)
 
 **Steps to bring up the project**
