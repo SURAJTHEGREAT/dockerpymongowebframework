@@ -21,11 +21,11 @@ RUN apt-get update && \
 ### STEP: SETUP CONGIFS #######
 
 
-RUN git config --global http.sslVerify "false" && \
+#RUN git config --global http.sslVerify "false" && \
 
-    git config --global http.sslversion sslv3 && \
+ #   git config --global http.sslversion sslv3 && \
 
-    git config --global  http.verify "false"
+  #  git config --global  http.verify "false"
 
 #EXPOSE AS BOTTLE WILL RUN IN THIS PORT
 

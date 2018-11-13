@@ -39,7 +39,6 @@ if [ ! -f ${CONF_DIR}/proxy.env ]; then
   
   echo "#proxy_port=${proxy_port:- }" >> ${CONF_DIR}/proxy.env
 
-  echo "WEB_SERVICE=${WEB_SERVICE:- }" >> ${CONF_DIR}/proxy.env
   
 fi
 
@@ -57,7 +56,7 @@ fi
 if [ ! -f ${CONF_DIR}/config.env ]; then
   
   echo "CONFIG_PATH=${CONFIG_PATH:- }" > ${CONF_DIR}/config.env
-  
+  echo "WEB_SERVICE=${WEB_SERVICE:- #bottle}" >> ${CONF_DIR}/config.env 
  
   
 fi

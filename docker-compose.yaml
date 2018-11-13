@@ -15,7 +15,8 @@ services:
       - conf/repo.env 
       - conf/config.env 
     ports:
-      - "8080:8082"
+       ### mapping to http port
+      - "80:8082"
     networks:
       - public
       - private
