@@ -32,7 +32,15 @@ done
 # 1ppc: launch entrypoint-1ppc.sh via dumb-init if $WEB_SERVICE is set
 if [ ! -z ${WEB_SERVICE} ]; then
   sh /blog-docker/bin/entrypoint-1ppc.sh
+  #RESTART OS
+  exec /sbin/init
+
+else
+
+  echo "WEBSERVICE IS NOT SET"
+
 fi
 
-#RESTART OS
-exec /sbin/init
+
+
+

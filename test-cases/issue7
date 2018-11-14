@@ -1,0 +1,4 @@
+What if web_Service not available in entrypoint-1pcc.sh?
+
+If the web_Service env is not entered - there is no exception in blog/bin/entrypoint-1pcc.sh.
+Now it is captured and throws corresponding error log
