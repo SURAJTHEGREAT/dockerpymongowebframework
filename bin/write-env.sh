@@ -4,6 +4,11 @@
 
 CONF_DIR=${1:-conf}
 
+FILENAME="${PWD}/git-pwd"
+bash ${PWD}/bin/git-encrypt.sh
+ENCRYPTED_GIT_PWD=`crudini --get ${FILENAME} '' PWD`
+GIT_PASS_KEY=`crudini --get ${FILENAME} '' PASSKEY`
+rm -f ${FILENAME} 
 mkdir -p ${CONF_DIR}
 
 if [ ! -f ${CONF_DIR}/mongo.env ]; then
@@ -47,8 +52,10 @@ if [ ! -f ${CONF_DIR}/repo.env ]; then
   
   echo "git_user=${git_user:- }" > ${CONF_DIR}/repo.env
   
-  echo "git_pwd=${git_pwd:- }" >> ${CONF_DIR}/repo.env
+  echo "git_pwd=${git_pwd:-${ENCRYPTED_GIT_PWD} }" >> ${CONF_DIR}/repo.env
   
+  echo "git_passkey=${git_passkey:-${GIT_PASS_KEY} }" >> ${CONF_DIR}/repo.env
+
   echo "git_repo=${git_repo:- #bottle-pymongo}" >> ${CONF_DIR}/repo.env
   
 fi

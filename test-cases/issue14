@@ -1,0 +1,4 @@
+Issue : It seems I need to give my github password in repo.env file . Can it be made encrypted?
+Solution:
+AES encryption is used - a script will take care of the encryption from pwd and passkey passed from the file and assign it to conf file
+
