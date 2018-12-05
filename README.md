@@ -1,5 +1,5 @@
 **Objective** : To containerize **python web application which uses bottle framework and pymongo** interacting with **mongodb** using containerization tools **docker and docker-compose**
-Also the compose file is written dynamically so that we can integrated applications running in **different framework** without any modifications
+Also the compose file is written dynamically so that we can integrated applications running in **different framework** without any modifications .
 
 **Web application** : **Blog application**
 
